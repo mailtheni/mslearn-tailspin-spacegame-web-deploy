@@ -62,7 +62,7 @@ stages:
     - publish: '$(Build.ArtifactStagingDirectory)'
       artifact: drop
 
-- stage: 'Deploy To Dev'
+- stage: 'DeployDev'
   displayName: 'Deploy the web application to Dev'
   dependsOn: Build
   jobs:
@@ -85,7 +85,7 @@ stages:
               appName: '$(WebAppName)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
 
-- stage: 'Deploy To Test'
+- stage: 'DeployTest'
   displayName: 'Deploy the web application to Test'
   dependsOn: Build
   jobs:
